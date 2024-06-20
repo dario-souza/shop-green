@@ -1,7 +1,10 @@
+
 import React from 'react'
-import Button from './button'
+// import Button from './button'
 import { Product } from '@/types/products.type'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
+const Button = dynamic(() => import('./button'), { ssr: false })
 
 interface ProductCardProps {
   data: Product
@@ -16,7 +19,7 @@ export const ProductCard = ({ data }: ProductCardProps) => {
       <span>R$: <strong className='text-2xl'>{data.price}</strong></span>
       <div className='flex justify-between'>
         <span>Ver mais</span>
-        <Button>Adicionar ao carrinho</Button>
+        <Button data={data}>Adicionar ao carrinho</Button>
       </div>
     </div>
   )
