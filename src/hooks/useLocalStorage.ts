@@ -1,14 +1,14 @@
 "use client";
-import { Product } from "@/types/products.type";
+
 import React from "react";
 
 const useLocalStorage = (
   key: string,
-  initialValue: Product[],
-): [Product[], React.Dispatch<React.SetStateAction<Product[]>>] => {
+  initialValue: string,
+): [string, React.Dispatch<React.SetStateAction<string>>] => {
   const [state, setState] = React.useState(() => {
     const localValue = window.localStorage.getItem(key);
-    return localValue ? JSON.parse(localValue) : initialValue;
+    return localValue ? localValue : initialValue;
   });
 
   React.useEffect(() => {

@@ -1,8 +1,13 @@
+
+import { ComponentA } from '@/components/componet'
 import React from 'react'
+
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <ComponentA />
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
 
+'use client'
 import React from 'react'
 // import Button from './button'
 import { Product } from '@/types/products.type'
@@ -11,6 +12,18 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ data }: ProductCardProps) => {
+  const [cart, setCart] = React.useState<Product[]>([])
+
+  const addedToCart = (itemCart: Product) => {
+    setCart(prevItem => {
+      const itemInCart = prevItem.some(item => item.id === itemCart.id)
+      if (!itemInCart) {
+        return [...prevItem, data]
+      }
+      return prevItem
+    })
+  }
+
 
   return (
     <div className='text-center border rounded-md p-2 sm:p-4'>
@@ -19,7 +32,7 @@ export const ProductCard = ({ data }: ProductCardProps) => {
       <span>R$: <strong className='text-2xl'>{data.price}</strong></span>
       <div className='flex justify-between'>
         <span>Ver mais</span>
-        <Button data={data}>Adicionar ao carrinho</Button>
+        <Button data={data} addedToCart={addedToCart} cart={cart}>Adicionar ao carrinho</Button>
       </div>
     </div>
   )
