@@ -6,7 +6,7 @@ import Button1 from './button1'
 const items: IProdFake[] = [
   { id: 1, age: 45, name: 'DArio' },
   { id: 2, age: 43, name: 'Joãozinho' },
-  { id: 3, age: 4, name: 'Mariana gostosa' },
+  { id: 3, age: 4, name: 'fofa' },
   { id: 4, age: 10, name: 'Coisinha' }
 ]
 

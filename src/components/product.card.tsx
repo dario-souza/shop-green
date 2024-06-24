@@ -1,29 +1,19 @@
 
 'use client'
 import React from 'react'
-// import Button from './button'
+import Button from './button'
 import { Product } from '@/types/products.type'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
-const Button = dynamic(() => import('./button'), { ssr: false })
+// import dynamic from 'next/dynamic'
+// const Button = dynamic(() => import('./button'), { ssr: false })
 
 interface ProductCardProps {
   data: Product
+  toggleCart: (item: Product) => void
+  cart: Product[]
 }
 
-export const ProductCard = ({ data }: ProductCardProps) => {
-  const [cart, setCart] = React.useState<Product[]>([])
-
-  const addedToCart = (itemCart: Product) => {
-    setCart(prevItem => {
-      const itemInCart = prevItem.some(item => item.id === itemCart.id)
-      if (!itemInCart) {
-        return [...prevItem, data]
-      }
-      return prevItem
-    })
-  }
-
+export const ProductCard = ({ data, toggleCart, cart }: ProductCardProps) => {
 
   return (
     <div className='text-center border rounded-md p-2 sm:p-4'>
@@ -32,7 +22,7 @@ export const ProductCard = ({ data }: ProductCardProps) => {
       <span>R$: <strong className='text-2xl'>{data.price}</strong></span>
       <div className='flex justify-between'>
         <span>Ver mais</span>
-        <Button data={data} addedToCart={addedToCart} cart={cart}>Adicionar ao carrinho</Button>
+        <Button onClick={() => toggleCart(data)}>{cart.includes(data) ? 'Remover' : 'Adicionar'}</Button>
       </div>
     </div>
   )
