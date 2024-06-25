@@ -2,13 +2,13 @@
 
 import React from "react";
 
-const useLocalStorage = (
+const useLocalStorage = <T,>(
   key: string,
-  initialValue: string,
-): [string, React.Dispatch<React.SetStateAction<string>>] => {
-  const [state, setState] = React.useState(() => {
+  initialValue: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
+  const [state, setState] = React.useState<T>(() => {
     const localValue = window.localStorage.getItem(key);
-    return localValue ? localValue : initialValue;
+    return localValue ? JSON.parse(localValue) : initialValue;
   });
 
   React.useEffect(() => {

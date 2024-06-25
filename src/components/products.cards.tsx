@@ -1,15 +1,16 @@
 'use client'
 import { Product } from '@/types/products.type'
 import React from 'react'
-import { ProductCard } from './product.card'
+import ProductCard from './product.card'
+import useLocalStorage from '@/hooks/useLocalStorage'
 
 
 type ProductsCardsProps = {
   product: Product[]
 }
 
-export const ProductsCards = ({ product }: ProductsCardsProps) => {
-  const [cart, setCart] = React.useState<Product[]>([])
+const ProductsCards = ({ product }: ProductsCardsProps) => {
+  const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
 
   const toggleCart = (itemCart: Product) => {
     setCart(prevItem => {
@@ -20,9 +21,6 @@ export const ProductsCards = ({ product }: ProductsCardsProps) => {
       return prevItem.filter(item => item.id !== itemCart.id)
     })
   }
-
-  console.log(cart)
-
   return (
     <>
       {
@@ -33,3 +31,5 @@ export const ProductsCards = ({ product }: ProductsCardsProps) => {
     </>
   )
 }
+
+export default ProductsCards 

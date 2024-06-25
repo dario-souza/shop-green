@@ -1,8 +1,9 @@
 import { Container } from "@/components/container";
-import { ProductsCards } from "@/components/products.cards";
+import dynamic from "next/dynamic";
+// import ProductsCards from "@/components/products.cards";
 import { baseUrl, fetchDataProducts } from "@/services/api/fetch.data";
 import { Product } from "@/types/products.type";
-
+const ProductsCards = dynamic(() => import("@/components/products.cards"), { ssr: false })
 
 export default async function Home() {
   const data = await fetchDataProducts<Product[]>(baseUrl)
