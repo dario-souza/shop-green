@@ -12,7 +12,7 @@ type ProductsCardsProps = {
 const ProductsCards = ({ product }: ProductsCardsProps) => {
   const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
 
-  const toggleCart = React.useCallback((itemCart: Product) => {
+  const toggleCart = (itemCart: Product) => {
     setCart(prevItem => {
       const itemInCart = prevItem.some(item => item.id === itemCart.id)
       if (!itemInCart) {
@@ -20,7 +20,7 @@ const ProductsCards = ({ product }: ProductsCardsProps) => {
       }
       return prevItem.filter(item => item.id !== itemCart.id)
     })
-  }, [setCart])
+  }
   return (
     <>
       {

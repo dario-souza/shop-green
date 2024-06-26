@@ -14,11 +14,7 @@ type CardDetailsProps = {
   data: Product
 }
 export const CardDetails = ({ data }: CardDetailsProps) => {
-  const incart = window.localStorage.getItem('carts')
-  if (incart) {
-    JSON.parse(incart)
-    console.log(incart)
-  }
+
   return (
     <div className='md:grid md:grid-cols-2 gap-5'>
       <Image className='h-96 md:h-[600px] my-auto object-contain mx-auto' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 600px) 100vw, 50vw' />
