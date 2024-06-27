@@ -10,13 +10,14 @@ import Button from './button'
 import { Product } from '@/types/products.type'
 
 
+
 type CardDetailsProps = {
   data: Product
 }
 export const CardDetails = ({ data }: CardDetailsProps) => {
 
   return (
-    <div className='md:grid md:grid-cols-2 gap-5'>
+    <div className='md:grid md:grid-cols-2 gap-5 border'>
       <Image className='h-96 md:h-[600px] my-auto object-contain mx-auto' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 600px) 100vw, 50vw' />
       <div className='bg-slate-300 rounded-lg p-4'>
         <TitleCard className='line-clamp-2 text-3xl md:font-extrabold md:line-clamp-4 md:text-5xl md:leading-tight'>{data.title}</TitleCard>

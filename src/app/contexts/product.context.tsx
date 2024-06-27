@@ -9,7 +9,7 @@ type ProductContextTypes = {
   setCart: React.Dispatch<React.SetStateAction<Product[]>>
 }
 
-export const ProductContext = createContext<ProductContextTypes | null>(null)
+const ProductContext = createContext<ProductContextTypes | null>(null)
 
 const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
@@ -25,10 +25,7 @@ export default ProductsContextProvider
 
 export const useProductContext = () => {
   const context = useContext(ProductContext)
-  if (context) {
-    return context
-  } else {
-    console.log('vc precisa englobar na raiz dos componentes')
-  }
+  if (context === null) throw new Error('O Product context deve estar dentro do provider')
+  return context
 }
 

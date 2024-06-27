@@ -21,7 +21,6 @@ interface ProductCardProps {
 
 const ProductCard = ({ data, toggleCart, cart }: ProductCardProps) => {
   const isInCart = cart.some(item => item.id === data.id);
-  console.log(cart)
   return (
     <div className='text-center border rounded-md p-2 sm:p-4'>
       <Image className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 600px) 100vw' />

@@ -2,7 +2,7 @@
 import { Product } from '@/types/products.type'
 import React from 'react'
 import ProductCard from './product.card'
-import useLocalStorage from '@/hooks/useLocalStorage'
+import { useProductContext } from '@/app/contexts/product.context'
 
 
 type ProductsCardsProps = {
@@ -10,7 +10,7 @@ type ProductsCardsProps = {
 }
 
 const ProductsCards = ({ product }: ProductsCardsProps) => {
-  const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
+  const { cart, setCart } = useProductContext()
 
   const toggleCart = (itemCart: Product) => {
     setCart(prevItem => {
