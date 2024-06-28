@@ -11,8 +11,8 @@ const ProductsCards = ({ product }: ProductsCardsProps) => {
   return (
     <>
       {
-        product.map(prod => (
-          <ProductCard key={prod.id} data={prod} />
+        product.map((prod, i) => (
+          <ProductCard index={i} key={prod.id} data={prod} />
         ))
       }
     </>

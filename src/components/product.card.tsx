@@ -15,14 +15,15 @@ import { useProductContext } from '@/app/contexts/product.context'
 
 interface ProductCardProps {
   data: Product
+  index: number
 }
 
-const ProductCard = ({ data }: ProductCardProps) => {
+const ProductCard = ({ data, index }: ProductCardProps) => {
   const { toggleCart, cart } = useProductContext()
   const isInCart = cart.some(item => item.id === data.id);
   return (
     <div className='text-center border rounded-md p-2 sm:p-4'>
-      <Image className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 600px) 100vw' />
+      <Image priority={index < 8} className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 600px) 100vw' />
       <TitleCard className='mt-4'>{data.title}</TitleCard>
       <PriceCard>
         <StrongCard className='font-extrabold'>{convertToBRL(data.price)}</StrongCard>
