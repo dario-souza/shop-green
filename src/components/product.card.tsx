@@ -11,15 +11,14 @@ import { convertToBRL } from '@/helper/convert.to.brl'
 import { RemoveCart } from './icons/removecart'
 import { AddCart } from './icons/addcart'
 import Link from 'next/link'
-
+import { useProductContext } from '@/app/contexts/product.context'
 
 interface ProductCardProps {
   data: Product
-  toggleCart: (item: Product) => void
-  cart: Product[]
 }
 
-const ProductCard = ({ data, toggleCart, cart }: ProductCardProps) => {
+const ProductCard = ({ data }: ProductCardProps) => {
+  const { toggleCart, cart } = useProductContext()
   const isInCart = cart.some(item => item.id === data.id);
   return (
     <div className='text-center border rounded-md p-2 sm:p-4'>
