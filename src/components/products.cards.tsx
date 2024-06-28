@@ -8,13 +8,33 @@ type ProductsCardsProps = {
 }
 
 const ProductsCards = ({ product }: ProductsCardsProps) => {
+  const [value, setValue] = React.useState('')
+
+  const filteredProduct = React.useMemo(() => {
+    const lowercaseText = value.toLowerCase()
+    return product.filter(item => item.title.toLowerCase().includes(lowercaseText))
+  }, [product, value])
+
+  const handleChange = React.useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(ev.target.value)
+  }, [])
+
   return (
     <>
-      {
-        product.map((prod, i) => (
-          <ProductCard index={i} key={prod.id} data={prod} />
-        ))
-      }
+      <input
+        className='block text-center px-2 border my-4 mx-auto rounded-md shadow-md outline-none text-lg w-1/2'
+        placeholder='Busque um produto'
+        type="text"
+        value={value}
+        onChange={handleChange}
+      />
+      <div className="grid grid-cols-2 sm:grid-cols-3 min-[950px]:grid-cols-4 gap-2 md:gap-4">
+        {
+          filteredProduct.map((prod, i) => (
+            <ProductCard index={i} key={prod.id} data={prod} />
+          ))
+        }
+      </div>
     </>
   )
 }

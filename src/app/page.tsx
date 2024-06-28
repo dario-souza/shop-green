@@ -7,10 +7,7 @@ export default async function Home() {
   const data = await fetchDataProducts<Product[]>(baseUrl)
   return (
     <Container>
-      <h1>produtos</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 min-[950px]:grid-cols-4 gap-2 md:gap-4">
-        <ProductsCards product={data} />
-      </div>
+      <ProductsCards product={data} />
     </Container>
   );
 }
