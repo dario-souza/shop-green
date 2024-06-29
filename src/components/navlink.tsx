@@ -13,7 +13,7 @@ export const NavLink = ({ href, children, className, ...rest }: NavLinkProps) =>
   const activePath = pathname === href
   return (
     <Link
-      className={twMerge('block px-4 py-2 bg-fuchsia-400 rounded', `${activePath && 'bg-emerald-300'}`, className)}
+      className={twMerge('block px-4 py-2 hover:bg-emerald-400 rounded transition duration-300 ease-in-out', `${activePath && 'bg-emerald-400'}`, className)}
       href={href}
       {...rest}
     >
