@@ -22,7 +22,7 @@ const ProductsCards = ({ product }: ProductsCardsProps) => {
   return (
     <>
       <input
-        className='block text-center px-2 border my-4 mx-auto rounded-md shadow-md outline-none text-lg w-1/2'
+        className='block w-full text-center px-2 py-1 border my-4 mx-auto rounded-md shadow-md outline-none text-base sm:w-1/2'
         placeholder='Busque um produto'
         type="text"
         value={value}

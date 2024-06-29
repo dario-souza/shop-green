@@ -23,11 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} pt-16 bg-emerald-50`}>
         <ProductsContextProvider>
-          <header className="h-16 border">
+          <header className="h-16 shadow-md fixed top-0 right-0 w-full z-50 bg-emerald-400">
             <Container className="h-full flex justify-between items-center">
-              <a href="#">Logo</a>
+              <a href="#" className="font-extrabold text-2xl">Magazine do Verdão</a>
               <NavigationMenu />
             </Container>
           </header>

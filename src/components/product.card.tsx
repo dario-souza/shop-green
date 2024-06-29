@@ -22,15 +22,19 @@ const ProductCard = ({ data, index }: ProductCardProps) => {
   const { toggleCart, cart } = useProductContext()
   const isInCart = cart.some(item => item.id === data.id);
   return (
-    <div className='text-center border rounded-md p-2 sm:p-4'>
-      <Image priority={index < 8} className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 700px) 33vw, 50vw' />
-      <TitleCard className='mt-4'>{data.title}</TitleCard>
-      <PriceCard>
-        <StrongCard className='font-extrabold'>{convertToBRL(data.price)}</StrongCard>
-      </PriceCard>
-      <div className='flex justify-between mt-4'>
-        <Link href={`/details/${data.id}`}>Ver mais</Link>
-        <Button className='bg-transparent' onClick={() => toggleCart(data)}>{isInCart ? <RemoveCart /> : <AddCart />}</Button>
+    <div className='text-center bg-white border rounded-md pt-2'>
+      <div className='h-auto rounded-md px-4'>
+        <Image priority={index < 8} className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 700px) 33vw, 50vw' />
+      </div>
+      <div className='bg-emerald-400 px-4 pb-2 border-t-4 border-emerald-700 mt-2'>
+        <TitleCard className='mt-1 pt-2'>{data.title}</TitleCard>
+        <PriceCard>
+          <StrongCard className='font-extrabold'>{convertToBRL(data.price)}</StrongCard>
+        </PriceCard>
+        <div className='flex justify-between mt-2'>
+          <Link className='hover:text-white transition ease-in-out duration-300' href={`/details/${data.id}`}>Ver mais</Link>
+          <Button className='bg-transparent' onClick={() => toggleCart(data)}>{isInCart ? <RemoveCart /> : <AddCart />}</Button>
+        </div>
       </div>
     </div>
   )
