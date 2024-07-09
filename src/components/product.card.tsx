@@ -1,12 +1,11 @@
 
 'use client'
 import React from 'react'
-import Button from './button'
+import Button from './card/button'
 import { Product } from '@/types/products.type'
 import Image from 'next/image'
-import { TitleCard } from './titlecard'
-import { PriceCard } from './pricecard'
-import { StrongCard } from './strongcard'
+import { TitleCard } from './card/titlecard'
+import { PriceCard } from './card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
 import { RemoveCart } from './icons/removecart'
 import { AddCart } from './icons/addcart'
@@ -29,7 +28,7 @@ const ProductCard = ({ data, index }: ProductCardProps) => {
       <div className='bg-emerald-400 px-4 pb-2 border-t-4 border-emerald-700 mt-2'>
         <TitleCard className='mt-1 pt-2'>{data.title}</TitleCard>
         <PriceCard>
-          <StrongCard className='font-extrabold'>{convertToBRL(data.price)}</StrongCard>
+          <strong className='font-extrabold'>{convertToBRL(data.price)}</strong>
         </PriceCard>
         <div className='flex justify-between mt-2'>
           <Link className='hover:text-white transition ease-in-out duration-300' href={`/details/${data.id}`}>Ver mais</Link>

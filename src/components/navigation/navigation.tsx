@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Menu } from './menu.hamburguer'
-import { NavLink } from '../navlink'
+import { NavLink } from './navlink'
 
 export const NavigationMenu = () => {
   const [menu, setMenu] = React.useState(false)
