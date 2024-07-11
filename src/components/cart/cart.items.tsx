@@ -11,7 +11,7 @@ export const CartItems = () => {
   const { cart } = useProductContext()
   return (
     <>
-      <Container className='grid grid-cols-1 overflow-auto sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4] h-[calc(100vh-293px)]'>
+      <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4] h-[calc(100vh-310px)]'>
         {cart.map(item => (
           <div key={item.id} className='grid grid-cols-3 shadow-md p-3 rounded-md'>
             <div className='relative col-span-1 mr-3'>
