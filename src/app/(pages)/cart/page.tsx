@@ -1,4 +1,4 @@
-import { CartItems } from '@/components/cart.items'
+import { CartItems } from '@/components/cart/cart.items'
 import React from 'react'
 
 const Cart = () => {

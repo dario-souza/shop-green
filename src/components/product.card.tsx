@@ -21,12 +21,12 @@ const ProductCard = ({ data, index }: ProductCardProps) => {
   const { toggleCart, cart } = useProductContext()
   const isInCart = cart.some(item => item.id === data.id);
   return (
-    <div className='text-center bg-white border rounded-md pt-2'>
+    <div className='text-center bg-white border rounded-md pt-2 overflow-hidden'>
       <div className='h-auto rounded-md px-4'>
         <Image priority={index < 8} className='mx-auto h-28 md:h-[200px] object-contain' src={data.image} alt={data.title} width={1049} height={1500} sizes='(max-width: 700px) 33vw, 50vw' />
       </div>
-      <div className='bg-emerald-400 px-4 pb-2 border-t-4 border-emerald-700 mt-2'>
-        <TitleCard className='mt-1 pt-2'>{data.title}</TitleCard>
+      <div className='bg-emerald-400 px-4 pb-2 border-t-4 border-black mt-2'>
+        <TitleCard className='pt-2 md:text-2xl'>{data.title}</TitleCard>
         <PriceCard>
           <strong className='font-extrabold'>{convertToBRL(data.price)}</strong>
         </PriceCard>

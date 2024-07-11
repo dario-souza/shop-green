@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
-import { Container } from './container'
+import { Container } from '../container'
 import { useProductContext } from '@/app/contexts/product.context'
 import Image from 'next/image'
-import { TitleCard } from './card/titlecard'
-import { PriceCard } from './card/pricecard'
+import { TitleCard } from '../card/titlecard'
+import { PriceCard } from '../card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
 
 export const CartItems = () => {
@@ -38,7 +38,7 @@ export const CartItems = () => {
         ))}
 
       </Container>
-      <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-600'>
+      <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-400'>
 
       </div>
     </>
