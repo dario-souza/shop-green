@@ -11,9 +11,9 @@ export const CartItems = () => {
   const { cart } = useProductContext()
   return (
     <>
-      <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4] h-[calc(100vh-310px)]'>
+      <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] md:grid-cols-2 min-[1060px]:grid-cols-3 gap-4 mt-4] h-[calc(100vh-(231px+64px))] py-4'>
         {cart.map(item => (
-          <div key={item.id} className='grid grid-cols-3 shadow-md p-3 rounded-md'>
+          <div key={item.id} className='bg-white grid grid-cols-3 shadow-md p-3 rounded-md'>
             <div className='relative col-span-1 mr-3'>
               <Image
                 className='object-contain'
@@ -23,13 +23,14 @@ export const CartItems = () => {
               />
             </div>
             <div className='col-span-2 flex flex-col justify-between'>
-              <TitleCard className='line-clamp-2 text-2xl border-b-2 border-emerald-600'>{item.title}</TitleCard>
+              <TitleCard className='line-clamp-2 border-b-2 border-emerald-600 md:text-lg'>{item.title}</TitleCard>
               <div className='flex justify-between mt-4'>
-                <div className='flex gap-1 mr-1'>
+                <div className='flex gap-1 mr-1 items-center'>
                   <button className='flex bg-emerald-600 justify-center pb-1 items-center px-[10px] font-semibold rounded text-2xl'>-</button>
+                  10
                   <button className='flex bg-emerald-600 justify-center pb-1 items-center px-2 font-semibold rounded text-2xl'>+</button>
                 </div>
-                <PriceCard className='bg-emerald-600 px-2 rounded-sm'>
+                <PriceCard className='bg-emerald-600 md:text-xl px-1 rounded-sm lg:text-xl'>
                   <strong>{convertToBRL(item.price)}</strong>
                 </PriceCard>
               </div>
