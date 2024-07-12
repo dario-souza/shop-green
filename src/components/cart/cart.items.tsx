@@ -6,9 +6,11 @@ import Image from 'next/image'
 import { TitleCard } from '../card/titlecard'
 import { PriceCard } from '../card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
+import { CounterItem } from './counter.items'
 
 export const CartItems = () => {
   const { cart } = useProductContext()
+
   return (
     <>
       <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] md:grid-cols-2 min-[1060px]:grid-cols-3 gap-4 mt-4] h-[calc(100vh-(231px+64px))] py-4'>
@@ -26,9 +28,7 @@ export const CartItems = () => {
               <TitleCard className='line-clamp-2 border-b-2 border-emerald-600 md:text-lg'>{item.title}</TitleCard>
               <div className='flex justify-between mt-4'>
                 <div className='flex gap-1 mr-1 items-center'>
-                  <button className='flex bg-emerald-600 justify-center pb-1 items-center px-[10px] font-semibold rounded text-2xl'>-</button>
-                  10
-                  <button className='flex bg-emerald-600 justify-center pb-1 items-center px-2 font-semibold rounded text-2xl'>+</button>
+                  <CounterItem />
                 </div>
                 <PriceCard className='bg-emerald-600 md:text-xl px-1 rounded-sm lg:text-xl'>
                   <strong>{convertToBRL(item.price)}</strong>
