@@ -9,7 +9,9 @@ import { convertToBRL } from '@/helper/convert.to.brl'
 import { CounterItem } from './counter.items'
 
 export const CartItems = () => {
-  const { cart } = useProductContext()
+  const { cart, totalItemsInCart } = useProductContext()
+  const totalItems = cart.length
+  const total = totalItemsInCart
 
   return (
     <>
@@ -28,7 +30,7 @@ export const CartItems = () => {
               <TitleCard className='line-clamp-2 border-b-2 border-emerald-600 md:text-lg'>{item.title}</TitleCard>
               <div className='flex justify-between mt-4'>
                 <div className='flex gap-1 mr-1 items-center'>
-                  <CounterItem />
+                  <CounterItem item={item} />
                 </div>
                 <PriceCard className='bg-emerald-600 md:text-xl px-1 rounded-sm lg:text-xl'>
                   <strong>{convertToBRL(item.price)}</strong>
@@ -40,7 +42,10 @@ export const CartItems = () => {
 
       </Container>
       <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-400'>
+        <Container>
+          <h1>Total: {totalItems}: {convertToBRL(total())} </h1>
 
+        </Container>
       </div>
     </>
   )

@@ -8,12 +8,17 @@ type ProductContextTypes = {
   cart: Product[]
   setCart: React.Dispatch<React.SetStateAction<Product[]>>
   toggleCart: (item: Product) => void
+  totalItemsInCart: () => number
 }
 
 const ProductContext = createContext<ProductContextTypes | null>(null)
 
 const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
+
+  const totalItemsInCart = () => {
+    return cart.reduce((acc, item) => acc + item.price, 0)
+  }
 
   const toggleCart = (itemCart: Product) => {
     setCart(prevItem => {
@@ -25,7 +30,7 @@ const ProductsContextProvider = ({ children }: { children: React.ReactNode }) =>
     })
   }
   return (
-    <ProductContext.Provider value={{ cart, setCart, toggleCart }}>
+    <ProductContext.Provider value={{ cart, setCart, toggleCart, totalItemsInCart }}>
       {children}
     </ProductContext.Provider>
   )
