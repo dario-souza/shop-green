@@ -8,7 +8,7 @@ type ProductContextTypes = {
   cart: Product[]
   setCart: React.Dispatch<React.SetStateAction<Product[]>>
   toggleCart: (item: Product) => void
-  totalItemsInCart: () => number
+  updateCartItemQuantity: (item: Product, quantity: number) => void
 }
 
 const ProductContext = createContext<ProductContextTypes | null>(null)
@@ -16,8 +16,16 @@ const ProductContext = createContext<ProductContextTypes | null>(null)
 const ProductsContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useLocalStorage<Product[]>('carts', [])
 
-  const totalItemsInCart = () => {
-    return cart.reduce((acc, item) => acc + item.price, 0)
+  const updateCartItemQuantity = (item: Product, quantity: number) => {
+    if (quantity < 1) {
+      setCart(prevItem => prevItem.filter(cartItem => cartItem.id !== item.id))
+    } else {
+      setCart(prevItem => {
+        return prevItem.map(cartItem =>
+          cartItem.id === item.id ? { ...cartItem, quantity } : cartItem
+        )
+      })
+    }
   }
 
   const toggleCart = (itemCart: Product) => {
@@ -30,14 +38,12 @@ const ProductsContextProvider = ({ children }: { children: React.ReactNode }) =>
     })
   }
   return (
-    <ProductContext.Provider value={{ cart, setCart, toggleCart, totalItemsInCart }}>
+    <ProductContext.Provider value={{ cart, setCart, toggleCart, updateCartItemQuantity }}>
       {children}
     </ProductContext.Provider>
   )
 }
-
 export default ProductsContextProvider
-
 
 export const useProductContext = () => {
   const context = useContext(ProductContext)

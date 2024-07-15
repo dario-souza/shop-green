@@ -9,12 +9,13 @@ import { convertToBRL } from '@/helper/convert.to.brl'
 import { CounterItem } from './counter.items'
 
 export const CartItems = () => {
-  const { cart, totalItemsInCart } = useProductContext()
+  const { cart } = useProductContext()
   const totalItems = cart.length
-  const total = totalItemsInCart
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
   return (
     <>
+      <p className='text-center mt-4 font-bold'>{totalItems === 0 && 'Carrinho vazio 😿😢😿😢'}</p>
       <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] md:grid-cols-2 min-[1060px]:grid-cols-3 gap-4 mt-4] h-[calc(100vh-(231px+64px))] py-4'>
         {cart.map(item => (
           <div key={item.id} className='bg-white grid grid-cols-3 shadow-md p-3 rounded-md'>
@@ -43,8 +44,8 @@ export const CartItems = () => {
       </Container>
       <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-400'>
         <Container>
-          <h1>Total: {totalItems}: {convertToBRL(total())} </h1>
-
+          <span className='block text-center'>Você tem <strong>{totalItems}</strong> itens em seu carrinho </span>
+          <h1 className='text-center font-bold text-2xl'>Total: {convertToBRL(total)} </h1>
         </Container>
       </div>
     </>

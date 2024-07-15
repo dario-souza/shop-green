@@ -8,27 +8,26 @@ type CounterItemProps = {
 }
 
 export const CounterItem = ({ item: cartItem }: CounterItemProps) => {
-  const { cart, setCart } = useProductContext()
-  const [count, setCount] = React.useState(1)
+  const { updateCartItemQuantity } = useProductContext()
+  const [count, setCount] = React.useState(cartItem.quantity || 1)
 
 
   const handleCountPlus = () => {
-    setCount(prev => prev + 1)
-
+    const newCount = count + 1
+    setCount(newCount)
+    updateCartItemQuantity(cartItem, newCount)
   }
-  const handleCountMinus = () => {
-    setCount(prev => {
-      return prev < 2 ? 1 : prev - 1
-    })
 
-    if (count < 2) {
-      setCart(prev => prev.filter(itemCart => {
-        if (itemCart.id !== cartItem.id) {
-          return itemCart
-        }
-      }))
+  const handleCountMinus = () => {
+    const newCount = count - 1
+    if (newCount < 1) {
+      updateCartItemQuantity(cartItem, 0)
+    } else {
+      setCount(newCount)
+      updateCartItemQuantity(cartItem, newCount)
     }
   }
+
   return (
     <>
       <button
