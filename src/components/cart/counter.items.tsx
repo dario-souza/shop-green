@@ -9,7 +9,7 @@ type CounterItemProps = {
 
 export const CounterItem = ({ item: cartItem }: CounterItemProps) => {
   const { updateCartItemQuantity } = useProductContext()
-  const [count, setCount] = React.useState(cartItem.quantity || 1)
+  const [count, setCount] = React.useState(1)
 
 
   const handleCountPlus = () => {

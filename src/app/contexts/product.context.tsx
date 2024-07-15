@@ -32,7 +32,8 @@ const ProductsContextProvider = ({ children }: { children: React.ReactNode }) =>
     setCart(prevItem => {
       const itemInCart = prevItem.some(item => item.id === itemCart.id)
       if (!itemInCart) {
-        return [...prevItem, itemCart]
+        const newItemCart = { ...itemCart, quantity: 1 }
+        return [...prevItem, newItemCart]
       }
       return prevItem.filter(item => item.id !== itemCart.id)
     })

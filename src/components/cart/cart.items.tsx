@@ -2,7 +2,7 @@
 import React from 'react'
 import { Container } from '../container'
 import { useProductContext } from '@/app/contexts/product.context'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { TitleCard } from '../card/titlecard'
 import { PriceCard } from '../card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
@@ -17,7 +17,7 @@ export const CartItems = () => {
     <>
       <p className='text-center mt-4 font-bold'>{totalItems === 0 && 'Carrinho vazio 😿😢😿😢'}</p>
       <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] md:grid-cols-2 min-[1060px]:grid-cols-3 gap-4 mt-4] h-[calc(100vh-(231px+64px))] py-4'>
-        {cart.map(item => (
+        {cart.map((item, index) => (
           <div key={item.id} className='bg-white grid grid-cols-3 shadow-md p-3 rounded-md'>
             <div className='relative col-span-1 mr-3'>
               <Image
@@ -25,6 +25,8 @@ export const CartItems = () => {
                 src={item.image}
                 layout='fill'
                 alt={item.description}
+                sizes='(max-width: 1280px) 15vh, 50vh'
+                priority={index < 7}
               />
             </div>
             <div className='col-span-2 flex flex-col justify-between'>
