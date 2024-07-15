@@ -7,6 +7,7 @@ import { TitleCard } from '../card/titlecard'
 import { PriceCard } from '../card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
 import { CounterItem } from './counter.items'
+import Button from '../card/button'
 
 export const CartItems = () => {
   const { cart } = useProductContext()
@@ -46,8 +47,9 @@ export const CartItems = () => {
       </Container>
       <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-400'>
         <Container>
-          <span className='block text-center'>Você tem <strong>{totalItems}</strong> itens em seu carrinho </span>
-          <h1 className='text-center font-bold text-2xl'>Total: {convertToBRL(total)} </h1>
+          <span className='block text-center mt-4'>Você tem <strong>{totalItems}</strong> itens em seu carrinho </span>
+          <h1 className='text-center font-bold text-2xl sm:text-3xl md:text-5xl'>Total: {convertToBRL(total)} </h1>
+          <button className='block bg-emerald-600 rounded py-2 px-4 font-bold mx-auto hover:text-white hover:bg-emerald-500 transition-colors duration-300'>Finalizar Compra</button>
         </Container>
       </div>
     </>
