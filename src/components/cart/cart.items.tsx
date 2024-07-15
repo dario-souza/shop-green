@@ -8,9 +8,11 @@ import { PriceCard } from '../card/pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
 import { CounterItem } from './counter.items'
 import Button from '../card/button'
+import { Modal } from '../modal'
 
 export const CartItems = () => {
   const { cart } = useProductContext()
+  const [openModal, setOpenModal] = React.useState(false)
   const totalItems = cart.length
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
@@ -49,9 +51,17 @@ export const CartItems = () => {
         <Container>
           <span className='block text-center mt-4'>Você tem <strong>{totalItems}</strong> itens em seu carrinho </span>
           <h1 className='text-center font-bold text-2xl sm:text-3xl md:text-5xl'>Total: {convertToBRL(total)} </h1>
-          <button className='block bg-emerald-600 rounded py-2 px-4 font-bold mx-auto hover:text-white hover:bg-emerald-500 transition-colors duration-300'>Finalizar Compra</button>
+          {totalItems > 0 &&
+            <button onClick={() => setOpenModal(!openModal)}
+              className='block bg-emerald-600 rounded py-2 px-4 font-bold mx-auto hover:text-white
+           hover:bg-emerald-500 transition-colors duration-300'
+            >
+              Finalizar Compra
+            </button>}
+
         </Container>
       </div>
+      <Modal open={openModal} setModal={setOpenModal} />
     </>
   )
 }
