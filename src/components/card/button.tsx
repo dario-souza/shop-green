@@ -1,8 +1,9 @@
 'use client'
 import React from 'react'
-const Button = ({ children, ...rest }: React.ComponentProps<'button'>) => {
+import { twMerge } from 'tailwind-merge'
+const Button = ({ children, className, ...rest }: React.ComponentProps<'button'>) => {
   return (
-    <button className='block px-2 py-1 rounded bg-emerald-400' {...rest}>{children}</button>
+    <button className={twMerge('block px-2 py-1 rounded bg-emerald-400', className)} {...rest}>{children}</button>
   )
 }
 
