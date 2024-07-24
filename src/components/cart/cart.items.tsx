@@ -3,12 +3,12 @@ import React from 'react'
 import { Container } from '../container'
 import { useProductContext } from '@/app/contexts/product.context'
 import Image from 'next/legacy/image'
-import { TitleCard } from '../card/titlecard'
-import { PriceCard } from '../card/pricecard'
+import { TitleCard } from '../titlecard'
+import { PriceCard } from '../pricecard'
 import { convertToBRL } from '@/helper/convert.to.brl'
-import { CounterItem } from './counter.items'
-import Button from '../card/button'
+import { QuantityItem } from './quantity.item'
 import { Modal } from '../modal'
+import { ButtonPrimary } from '../button.primary'
 
 export const CartItems = () => {
   const { cart } = useProductContext()
@@ -35,8 +35,8 @@ export const CartItems = () => {
             <div className='col-span-2 flex flex-col justify-between'>
               <TitleCard className='line-clamp-2 border-b-2 border-emerald-600 md:text-lg'>{item.title}</TitleCard>
               <div className='flex justify-between mt-4'>
-                <div className='flex gap-1 mr-1 items-center'>
-                  <CounterItem item={item} />
+                <div className='flex gap-1 items-center'>
+                  <QuantityItem item={item} />
                 </div>
                 <PriceCard className='bg-emerald-600 md:text-xl px-1 rounded-sm lg:text-xl'>
                   <strong>{convertToBRL(item.price)}</strong>
@@ -45,20 +45,21 @@ export const CartItems = () => {
             </div>
           </div>
         ))}
-
       </Container>
       <div className='border h-[25vh] fixed bottom-0 left-0 right-0 w-full bg-emerald-400'>
         <Container>
-          <span className='block text-center mt-4'>Você tem <strong>{totalItems}</strong> itens em seu carrinho </span>
-          <h1 className='text-center font-bold text-2xl sm:text-3xl md:text-5xl'>Total: {convertToBRL(total)} </h1>
+          <span className='block text-center mt-4'>
+            Você tem <strong>{totalItems}</strong> itens em seu carrinho
+          </span>
+          <h1
+            className='text-center my-4 font-bold text-2xl sm:text-3xl md:text-5xl'>
+            Total: {convertToBRL(total)}
+          </h1>
           {totalItems > 0 &&
-            <button onClick={() => setOpenModal(!openModal)}
-              className='block bg-emerald-600 rounded py-2 px-4 font-bold mx-auto hover:text-white
-           hover:bg-emerald-500 transition-colors duration-300'
-            >
+            <ButtonPrimary onClick={() => setOpenModal(!openModal)}>
               Finalizar Compra
-            </button>}
-
+            </ButtonPrimary>
+          }
         </Container>
       </div>
       <Modal open={openModal} setModal={setOpenModal} />

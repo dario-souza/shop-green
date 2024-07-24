@@ -7,7 +7,7 @@ type CounterItemProps = {
   item: Product
 }
 
-export const CounterItem = ({ item: cartItem }: CounterItemProps) => {
+export const QuantityItem = ({ item: cartItem }: CounterItemProps) => {
   const { updateCartItemQuantity } = useProductContext()
   const [count, setCount] = React.useState(1)
 
@@ -32,14 +32,14 @@ export const CounterItem = ({ item: cartItem }: CounterItemProps) => {
     <>
       <button
         onClick={handleCountMinus}
-        className='flex bg-emerald-600 justify-center pb-1 items-center px-[10px] font-semibold rounded text-2xl'
+        className='block bg-emerald-600 justify-center items-center px-[10px] font-semibold rounded text-2xl'
       >
         -
       </button>
       {count}
       <button
         onClick={handleCountPlus}
-        className='flex bg-emerald-600 justify-center pb-1 items-center px-2 font-semibold rounded text-2xl'
+        className='flex bg-emerald-600 justify-center items-center px-2 font-semibold rounded text-2xl'
       >
         +
       </button>

@@ -1,5 +1,5 @@
 import { Container } from "@/components/container";
-import ProductsCards from "@/components/products.cards";
+import ProductsCards from "@/components/products/products.cards";
 import { baseUrl, fetchDataProducts } from "@/services/api/fetch.data";
 import { Product } from "@/types/products.type";
 

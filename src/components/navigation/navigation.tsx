@@ -33,8 +33,8 @@ export const NavigationMenu = () => {
       <div className="hidden sm:flex gap-4">
         <NavLink className='hover:text-white font-bold' href="/">Home</NavLink>
         <NavLink href="/cart" className='hover:text-white font-bold block relative'>
-          <TbShoppingCart size={20} />
-          <div className='bg-white text-black px-2 py-1 rounded-full absolute top-[-5px] left-[-10px]'>
+          <TbShoppingCart size={25} />
+          <div className='bg-white text-xs text-black py-1 px-2 rounded-full absolute top-[-5px] right-[-1px]'>
             {cart.length}
           </div>
 

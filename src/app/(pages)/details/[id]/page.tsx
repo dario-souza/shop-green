@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardDetails } from '@/components/card.details'
+import { CardDetails } from '@/components/product.details/card.details'
 import { Container } from '@/components/container'
 import { baseUrl, fetchDataProducts } from '@/services/api/fetch.data'
 import { Product } from '@/types/products.type'
