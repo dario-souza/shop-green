@@ -18,7 +18,7 @@ export const CartItems = () => {
 
   return (
     <>
-      <p className='text-center mt-4 font-bold'>{totalItems === 0 && 'Carrinho vazio 😿😢😿😢'}</p>
+      {totalItems === 0 && <p>Carrinho vazio 😿😢😿😢</p>}
       <Container className='grid grid-cols-1 overflow-auto auto-rows-[150px] md:grid-cols-2 min-[1060px]:grid-cols-3 gap-4 mt-4] h-[calc(100vh-(231px+64px))] py-4'>
         {cart.map((item, index) => (
           <div key={item.id} className='bg-white grid grid-cols-3 shadow-md p-3 rounded-md'>
