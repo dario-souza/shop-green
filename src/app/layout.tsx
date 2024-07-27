@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import dynamic from "next/dynamic";
 import { NavigationMenu } from "@/components/navigation/navigation";
 import { Header } from "@/components/header/header";
+import Link from "next/link";
 // import ProductsContextProvider from "./contexts/product.context";
 
 const ProductsContextProvider = dynamic(() => import("./contexts/product.context"), { ssr: false })
@@ -28,7 +29,7 @@ export default function RootLayout({
         <ProductsContextProvider>
           <Header>
             <Container className="h-full flex justify-between items-center">
-              <a href="#" className="font-extrabold text-2xl">Shop Green</a>
+              <Link href="/" className="font-extrabold text-2xl">Shop Green</Link>
               <NavigationMenu />
             </Container>
           </Header>
