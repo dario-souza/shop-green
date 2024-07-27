@@ -38,7 +38,7 @@ export const CardDetails = ({ data }: CardDetailsProps) => {
           {data.description}
         </Description>
         <PriceCard className='block text-center'>
-          <strong className='md:text-3xl'>{convertToBRL(data.price)}</strong>
+          <strong className='text-2xl'>{convertToBRL(data.price)}</strong>
         </PriceCard>
         <ButtonPrimary onClick={() => toggleCart(data)}
           className={`w-full mt-2 ${incart ? 'bg-red-700' : 'bg-emerald-700'} rounded-md`}>
