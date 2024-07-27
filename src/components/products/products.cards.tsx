@@ -28,7 +28,7 @@ const ProductsCards = ({ product }: ProductsCardsProps) => {
         value={value}
         onChange={handleChange}
       />
-      <div className="grid grid-cols-2 sm:grid-cols-3 min-[950px]:grid-cols-4 gap-2 md:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 min-[950px]:grid-cols-5 gap-2 md:gap-4">
         {
           filteredProduct.map((prod, i) => (
             <ProductCard index={i} key={prod.id} data={prod} />
