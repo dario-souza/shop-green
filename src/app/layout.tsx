@@ -14,8 +14,8 @@ const ProductsContextProvider = dynamic(() => import("./contexts/product.context
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mercadin se zé",
-  description: "Um mercadinho fictício",
+  title: "Shop Green",
+  description: "Um prótotipo que simula as etapas da compra de um produto de uma loja online",
 };
 
 export default function RootLayout({
