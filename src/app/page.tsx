@@ -8,7 +8,7 @@ export default async function Home() {
   const data = await fetchDataProducts<Product[]>(baseUrl)
   return (
     <main>
-      <Container>
+      <Container className="h-[calc(100vh-(64px+80px+16px))] overflow-auto">
         <ProductsCards product={data} />
       </Container>
       <Footer />
