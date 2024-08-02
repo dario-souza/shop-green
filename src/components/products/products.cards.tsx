@@ -33,7 +33,7 @@ const ProductsCards = ({ product }: ProductsCardsProps) => {
 
   return (
     <>
-      <FilterProducts onChange={(e) => setValue(e.target.value)} value={value} />
+      <FilterProducts onChange={(e) => setValue(e.target.value)} value={value} placeholder='Buscar' />
       <CategorySelect categories={categories}
         selectedCategory={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
