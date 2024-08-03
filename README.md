@@ -46,10 +46,10 @@ Servidor vai rodar no localhost:3000
 [![My Skills](https://skillicons.dev/icons?i=react,next,tailwindcss,ts&theme=light)](https://skillicons.dev)  
 
 ### Prints
-![desktop-home](image-1.png)
-![desktop-details](image-2.png)
-![desktop-cart](image-3.png)
-![mobile-cart](image-4.png) ![mobile-home-category-jewelery](image-5.png)
+![desktop-home](readme-images/image-1.png)
+![desktop-details](readme-images/image-2.png)
+![desktop-cart](readme-images/image-3.png)
+![mobile-cart](readme-images/image-4.png) ![mobile-home-category-jewelery](readme-images/image-5.png)
 
 
 
