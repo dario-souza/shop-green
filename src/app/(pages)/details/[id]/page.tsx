@@ -13,7 +13,7 @@ type ProductDetailsProps = {
 const ProductDetails = async ({ params: { id } }: ProductDetailsProps) => {
   const data = await fetchDataProducts<Product>(`${baseUrl}/${id}`)
   return (
-    <Container className='h-[calc(100vh-64px)] flex justify-center items-center'>
+    <Container className="h-[calc(100vh-64px)] flex justify-center items-center">
       <CardDetails data={data} />
     </Container>
   )

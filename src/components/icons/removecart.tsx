@@ -1,8 +1,6 @@
 import React from 'react'
-import { BsCartDashFill } from "react-icons/bs";
+import { BsCartDashFill } from 'react-icons/bs'
 
 export const RemoveCart = () => {
-  return (
-    <BsCartDashFill className='text-emerald-700' size={25} />
-  )
+  return <BsCartDashFill className="text-emerald-700" size={25} />
 }
