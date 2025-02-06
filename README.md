@@ -9,7 +9,7 @@ Este é um protótipo de um e-commerce, tendo as principais funcionalidades de u
 - Quantidade de itens
 
 ## Link do projeto
-https://tarefas-sh4kaa.vercel.app
+[https://tarefas-sh4kaa.vercel.app](https://shop-green-ten.vercel.app/)
 ## Funcionamento
 Você pode clicar no ícone do carrinho para adicionar um produto, esse ícone terá uma uma aparência diferente, com um sinal de "-" e o item será adicionado ao carrinho, você verá um contador ao lado ícone de carrinho(tamanho de tela desktop, se for em telas menores(mobile) o contador de itens ficará no menu hamburguer) indicando a quantidade de itens do carrinho. Para remover o item do carrinho, basta clica novamente no icone do carrinho na tela de produtos. 
 É possivel remover os itens do carrinho tanto na página home quanto na página de detalhes do produto ou na página do próprio carrinho.
